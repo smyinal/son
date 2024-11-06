@@ -1,0 +1,192 @@
+/* Ana görsel */
+.scrollable-image {
+    width: 100%;             /* Görselin ekran genişliğine göre tam sığması */
+    overflow: hidden;        /* Taşma durumunu engeller */
+}
+
+.long-image {
+    width: 100%;             /* Görselin tam genişliğe sığmasını sağlar */
+    display: block;
+}.long-image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Taşan kısımları gizler */
+}
+
+/* Yorum alanı */
+.comment-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    /* Sayfanın sonunda olması için margin-top ekleyin */
+    margin-top: 20px;
+}
+
+.comment-input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.comment-submit {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.comments-list {
+    margin-top: 15px;
+    text-align: left;
+}
+
+/* Araba animasyon alanı */
+.car-container {
+    position: relative;
+    width: 100%;
+    height: 1000px; /* Görselin boyutuna göre yüksekliği ayarlayın */
+    overflow: hidden;
+    top: 12500px;
+    background-color: transparent; /* Arka plan rengi */
+}
+
+/* Araba görseli */
+.moving-car {
+    position: absolute; /* Arabanın konumlandırılması için */
+    top: 0; /* Görselin üst kısmında başlayacak */
+    width: 1000px; /* Arabanın genişliği */
+    height: 1000px; /* Arabanın yüksekliği */
+    animation: moveCar 5s linear infinite; /* Sürekli hareket */
+}
+
+/* Sağdan sola hareket animasyonu */
+@keyframes moveCar {
+    0% {
+        left: 100%; /* Ekranın sağ dışından başlar */
+    }
+    100% {
+        left: -2500px; /* Ekranın sol dışına çıkar */
+    }
+}
+.scrollable-image {
+    position: relative; /* Konumlandırma için relatif ayar */
+}
+
+.comment-section {
+    position: absolute; /* Yorum alanını konumlandırmak için */
+    bottom: calc(100% - 10700px); /* 880 piksel yukarıda olacak */
+    left: 50%; /* Sol kenarı %50 konumda ayarlar */
+    transform: translateX(-50%); /* Sol kenarı %50 kaydırarak ortalar */
+    background-color: rgba(255, 255, 255, 0.8); /* Yorum alanı arka planı */
+    padding: 30px; /* İç boşluk */
+    border-radius: 5px; /* Kenarları yuvarlaklaştır */
+    z-index: 10; /* Diğer elemanların üstünde olmasını sağlar */
+}
+
+.car-container {
+    position: absolute; /* Araba animasyonunu konumlandırmak için */
+    bottom: 100px; /* Yorum alanının üstünde */
+    right: 20px; /* Sağ kısımdan 20 piksel içeride */
+    z-index: 5; /* Yorum alanından daha altta olmasını sağlamak için */
+}
+
+.moving-car {
+    width: 1000px; /* Araba boyutunu ayarlama */
+    animation: moveCar 5s linear infinite; /* Araba hareket animasyonu */
+}
+
+@keyframes moveCar {
+    from { transform: translateX(100vw); } /* Başlangıç noktası sağdan */
+    to { transform: translateX(-1000px); } /* Bitiş noktası solda */
+}
+
+/* QR Kodu Stili */
+.qr-code1-container {
+    position: absolute; /* Konumlandırma için */
+    top: 8080px; /* Üstten 20 piksel aşağıda */
+    left: 60%; /* Sol kenarı %50 konumda ayarlar */
+    transform: translateX(-50%); /* Sol kenarı %50 kaydırarak ortalar */
+    z-index: 10; /* Görselin üstünde olmasını sağlar */
+}
+
+.qr-code1 {
+    width: 150px; /* QR kodun genişliği */
+    height: auto; /* Orantıyı koruma */
+}
+
+.qr-code2-container {
+    position: absolute; /* Konumlandırma için */
+    top: 7030px; /* Üstten 20 piksel aşağıda */
+    left: 60%; /* Sol kenarı %50 konumda ayarlar */
+    transform: translateX(-50%); /* Sol kenarı %50 kaydırarak ortalar */
+    z-index: 10; /* Görselin üstünde olmasını sağlar */
+}
+
+.qr-code2 {
+    width: 150px; /* QR kodun genişliği */
+    height: auto; /* Orantıyı koruma */
+}
+.audio-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#audio-container button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Görselin ve öğelerin sabit konumu */
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.qr-code, .car, .comments {
+  position: absolute;
+}
+
+.qr-code {
+  top: 10%; /* Yüksekliğe orantılı konum */
+  left: 5%;
+}
+
+.car {
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.comments {
+  top: 50%;
+  left: 10%;
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+  .qr-code {
+    top: 8%; /* Mobilde biraz yukarıya al */
+    left: 3%;
+  }
+
+  .car {
+    top: 25%;
+  }
+
+  .comments {
+    top: 45%;
+    left: 5%;
+  }
+}
